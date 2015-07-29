@@ -81,8 +81,8 @@ public class DisplayAlbumServlet extends HttpServlet
     {
         writer.write("<h3 align='center'>" + label + "</h3>");
         writer.write("<table align='center'>");
-        writer.write("<tr>");
 
+        writer.write("<tr>");
         for (int j = 0; j < photoAlbum.getPhotoCount(); j++) {
             writer.write("<td>");
             writer.write("<a href='./DisplayPhotoServlet?photo=" + j + "'>");
@@ -90,7 +90,6 @@ public class DisplayAlbumServlet extends HttpServlet
             writer.write("</a>");
             writer.write("</td>");
         }
-
         writer.write("<td bgcolor='#cccccc' width='120' height='120'>");
         writer.write("<form align='left' action='DisplayAlbumServlet' method='post' enctype='multipart/form-data'>");
         writer.write("<input value='Choose' name='myFile' type='file' accept='image/jpeg'><br>");
@@ -114,6 +113,7 @@ public class DisplayAlbumServlet extends HttpServlet
             writer.write("</td>");
         }
         writer.write("</tr>");
+
         writer.write("</table>");
     }
 
