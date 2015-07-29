@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import java.io.*;
+import com.example.hello.chapter02.model.PhotoAlbum;
 
 /**
  * Created by user on 29.07.2015.
