@@ -21,6 +21,7 @@
             Date now = new Date();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEEEEE");
             String today = simpleDateFormat.format(now);
+
             out.println(today.trim());
         %>
     </div>
