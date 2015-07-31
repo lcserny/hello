@@ -1,7 +1,7 @@
 package com.example.hello.chapter02.model;
 
 import java.util.*;
-import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by user on 29.07.2015.
@@ -12,14 +12,14 @@ public class PhotoAlbum
     private List<byte[]> photoDataList = new ArrayList<byte[]>();
     private List<String> names = new ArrayList<String>();
 
-    public static PhotoAlbum getPhotoAlbum(ServletContext servletContext)
+    public static PhotoAlbum getPhotoAlbum(HttpSession session)
     {
-        if (servletContext.getAttribute(ATTRIBUTE_NAME) == null) {
+        if (session.getAttribute(ATTRIBUTE_NAME) == null) {
             PhotoAlbum photoAlbum = new PhotoAlbum();
-            servletContext.setAttribute(ATTRIBUTE_NAME, photoAlbum);
+            session.setAttribute(ATTRIBUTE_NAME, photoAlbum);
         }
 
-        return (PhotoAlbum) servletContext.getAttribute(ATTRIBUTE_NAME);
+        return (PhotoAlbum) session.getAttribute(ATTRIBUTE_NAME);
     }
 
     public synchronized void addPhoto(String name, byte[] bytes)

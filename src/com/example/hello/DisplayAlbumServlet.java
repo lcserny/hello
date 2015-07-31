@@ -2,7 +2,7 @@ package com.example.hello;
 
 import com.example.hello.chapter02.model.PhotoAlbum;
 
-import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,8 +34,8 @@ public class DisplayAlbumServlet extends HttpServlet
 
     protected void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        ServletContext servletContext = request.getServletContext();
-        PhotoAlbum photoAlbum = PhotoAlbum.getPhotoAlbum(servletContext);
+        HttpSession session = request.getSession();
+        PhotoAlbum photoAlbum = PhotoAlbum.getPhotoAlbum(session);
 
         if (request.getContentType() != null && request.getContentType().startsWith("multipart/form-data")) {
             this.uploadPhoto(request, photoAlbum);

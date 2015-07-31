@@ -1,7 +1,7 @@
 package com.example.hello;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,8 +26,8 @@ public class DisplayPhotoServlet extends HttpServlet
         OutputStream outputStream = resp.getOutputStream();
 
         try {
-            ServletContext servletContext = req.getServletContext();
-            PhotoAlbum photoAlbum = PhotoAlbum.getPhotoAlbum(servletContext);
+            HttpSession session = req.getSession();
+            PhotoAlbum photoAlbum = PhotoAlbum.getPhotoAlbum(session);
             byte[] bytes = photoAlbum.getPhotoData(index);
 
             for (int i = 0; i < bytes.length; i++) {

@@ -21,7 +21,7 @@ public class RemovePhotoServlet extends HttpServlet
     {
         String indexString = req.getParameter("photo");
         int index = (new Integer(indexString.trim())).intValue();
-        PhotoAlbum photoAlbum = PhotoAlbum.getPhotoAlbum(req.getServletContext());
+        PhotoAlbum photoAlbum = PhotoAlbum.getPhotoAlbum(req.getSession());
 
         photoAlbum.removePhoto(index);
 
